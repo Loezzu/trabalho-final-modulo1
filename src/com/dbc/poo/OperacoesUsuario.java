@@ -18,7 +18,7 @@ public class OperacoesUsuario implements Operacoes{
     }
 
     @Override
-    public void listarUsuarios() {
+    public void listarTodosUsuarios() {
         for (int i = 0; i < usuariosList.size(); i++) {
             System.out.println("Id = " + i + " | " + usuariosList.get(i));
         }
@@ -47,6 +47,8 @@ public class OperacoesUsuario implements Operacoes{
         }
     }
 
+
+
     @Override
     public void removerUsuarioPorIndice(int index) {
         this.usuariosList.remove(index);
@@ -74,5 +76,7 @@ public class OperacoesUsuario implements Operacoes{
             usuarioProcurado.setLinguagem(usuario.getLinguagem());
         }
     }
+
+
 
 }

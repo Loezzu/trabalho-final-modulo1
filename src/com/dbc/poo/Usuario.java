@@ -92,6 +92,30 @@ public abstract class Usuario {
         meusMatch.forEach(System.out::println);
     }
 
+
+
+    public void editarMeuUsuario(Usuario usuario) {
+        if(usuario.getEmail() != null){
+           setEmail(usuario.getEmail());
+        }
+        if(usuario.getIdade() != null){
+           setIdade(usuario.getIdade());
+        }
+        if(usuario.getInteresse() != null){
+            setInteresse(usuario.getInteresse());
+        }
+        if(usuario.getGenero() != null){
+            setGenero(usuario.getGenero());
+        }
+        if(usuario.getNome() != null){
+            setNome(usuario.getNome());
+        }
+        if(usuario.getLinguagem() != null){
+            setLinguagem(usuario.getLinguagem());
+        }
+    }
+
+
     @Override
     public String toString() {
         return "Usuario{" +
