@@ -155,34 +155,33 @@ public class Main {
         }
 
         System.out.println("Para continuar como Usuario, faça um cadastro: ");
-        System.out.println("Qual seu nome: ");
-        String nome = sc.next();
-        System.out.println("Qual sua idade: ");
-        int idade = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Qual seu email: ");
-        String email = sc.next();
-        sc.nextLine();
-        DadosPessoais dados = new DadosPessoais(idade, email);
-        System.out.println("Informe seu endereço: ");
-        System.out.println("Rua: ");
-        String logradouro = sc.nextLine();
-        System.out.println("Numero da casa/apto: ");
-        int numero = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Cidade: ");
-        String cidade = sc.nextLine();
-        Endereco novoEndereco = new Endereco(logradouro, numero, cidade);
-        System.out.println("Qual sua linguagem: ");
-        Linguagens linguagem = Linguagens.valueOf(sc.nextLine().toUpperCase(Locale.ROOT).replace(" ", "_"));
-        System.out.println("Qual seu genero: ");
-        Genero genero = Genero.valueOf(sc.next().toUpperCase(Locale.ROOT));
-        System.out.println("Qual seu interesse? ");
-        Interesse interesse = Interesse.valueOf(sc.next().toUpperCase(Locale.ROOT));
-
-//        Usuario novoUsuario = new Usuario(nome, dados,novoEndereco ,linguagem, genero, interesse);
-//        OperacoesUsuario novoUsuario = new OperacoesUsuario();
-        Usuario novoUsuario = new Usuario(nome, dados, novoEndereco,linguagem, genero, interesse);
+//        System.out.println("Qual seu nome: ");
+//        String nome = sc.next();
+//        System.out.println("Qual sua idade: ");
+//        int idade = sc.nextInt();
+//        sc.nextLine();
+//        System.out.println("Qual seu email: ");
+//        String email = sc.next();
+//        sc.nextLine();
+//        DadosPessoais dados = new DadosPessoais(idade, email);
+//        System.out.println("Informe seu endereço: ");
+//        System.out.println("Rua: ");
+//        String logradouro = sc.nextLine();
+//        System.out.println("Numero da casa/apto: ");
+//        int numero = sc.nextInt();
+//        sc.nextLine();
+//        System.out.println("Cidade: ");
+//        String cidade = sc.nextLine();
+//        Endereco novoEndereco = new Endereco(logradouro, numero, cidade);
+//        System.out.println("Qual sua linguagem: ");
+//        Linguagens linguagem = Linguagens.valueOf(sc.nextLine().toUpperCase(Locale.ROOT).replace(" ", "_"));
+//        System.out.println("Qual seu genero: ");
+//        Genero genero = Genero.valueOf(sc.next().toUpperCase(Locale.ROOT));
+//        System.out.println("Qual seu interesse? ");
+//        Interesse interesse = Interesse.valueOf(sc.next().toUpperCase(Locale.ROOT));
+//
+//        Usuario novoUsuario = new Usuario(nome, dados, novoEndereco,linguagem, genero, interesse);
+        Usuario novoUsuario = new Usuario("luiz", new DadosPessoais(19, "luiz@gmail.com"), new Endereco("rua jose", 123, "gravataí"), Linguagens.JAVA, Genero.MASCULINO, Interesse.MULHER);
         opUsuario.cadastrarUsuario(novoUsuario);
 
         int opcaoMenuDois = 0;
@@ -220,7 +219,7 @@ public class Main {
                             System.out.println("Digite o novo nome: ");
                             String novoNome = sc.next();
                             usuarioEditado.setNome(novoNome);
-                            opUsuario.editarMeuUsuario(usuarioEditado);
+                            opUsuario.editarUsuario(novoUsuario,usuarioEditado);
                             break;
                         case 2:
                             usuarioEditado = new Usuario();
@@ -231,28 +230,28 @@ public class Main {
                             String novoEmail = sc.next();
                             DadosPessoais novosDados = new DadosPessoais(novaIdade, novoEmail);
                             usuarioEditado.setDadosPessoais(novosDados);
-                            opUsuario.editarMeuUsuario(usuarioEditado);
+                            opUsuario.editarUsuario(novoUsuario,usuarioEditado);
                             break;
                         case 3:
                             usuarioEditado = new Usuario();
                             System.out.println("Digite a nova linguagem: ");
                             Linguagens novaLinguagem = Linguagens.valueOf(sc.nextLine().toUpperCase(Locale.ROOT).replace(" ", "_"));
                             usuarioEditado.setLinguagem(novaLinguagem);
-                            opUsuario.editarMeuUsuario(usuarioEditado);
+                            opUsuario.editarUsuario(novoUsuario,usuarioEditado);
                             break;
                         case 4:
                             usuarioEditado = new Usuario();
                             System.out.println("Digite o novo genero: ");
                             Genero novoGenero = Genero.valueOf(sc.next().toUpperCase(Locale.ROOT));
                             usuarioEditado.setGenero(novoGenero);
-                            opUsuario.editarMeuUsuario(usuarioEditado);
+                            opUsuario.editarUsuario(novoUsuario,usuarioEditado);
                             break;
                         case 5:
                             usuarioEditado = new Usuario();
                             System.out.println("Digite o novo interesse: ");
                             Interesse novoInteresse = Interesse.valueOf(sc.next().toUpperCase(Locale.ROOT));
                             usuarioEditado.setInteresse(novoInteresse);
-                            opUsuario.editarMeuUsuario(usuarioEditado);
+                            opUsuario.editarUsuario(novoUsuario,usuarioEditado);
                             break;
                         case 6:
                             usuarioEditado = new Usuario();
@@ -266,7 +265,7 @@ public class Main {
                             String novaCidade = sc.nextLine();
                             Endereco newEndereco = new Endereco(rua, num, novaCidade);
                             usuarioEditado.setEndereco(newEndereco);
-                            opUsuario.editarMeuUsuario(usuarioEditado);
+                            opUsuario.editarUsuario(novoUsuario,usuarioEditado);
                             break;
                         default:
                             System.out.println("Erro");
@@ -278,7 +277,7 @@ public class Main {
                     break;
                 }
                 case 5:{
-                    opUsuario.imprimirMeusDados();
+                    opUsuario.imprimirMeusDados(novoUsuario);
                     break;
                 }
                 case 8:

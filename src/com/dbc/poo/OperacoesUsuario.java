@@ -2,11 +2,11 @@ package com.dbc.poo;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class OperacoesUsuario extends Usuario implements Operacoes{
 
     private final List<Usuario> usuariosList = new ArrayList<>();
+
 
 
     public List<Usuario> getUsuariosList() {
@@ -56,64 +56,39 @@ public class OperacoesUsuario extends Usuario implements Operacoes{
         }
     }
 
-
-
     @Override
     public void removerUsuarioPorIndice(int index) {
         this.usuariosList.remove(index);
     }
 
+
+    @Override
+    public void editarUsuario(Usuario usuarioAntigo, Usuario usuarioNovo) {
+        if(usuarioNovo.getDadosPessoais() != null){
+            usuarioAntigo.setDadosPessoais(usuarioNovo.getDadosPessoais());
+        }
+        if(usuarioNovo.getInteresse() != null){
+            usuarioAntigo.setInteresse(usuarioNovo.getInteresse());
+        }
+        if(usuarioNovo.getGenero() != null){
+            usuarioAntigo.setGenero(usuarioNovo.getGenero());
+        }
+        if(usuarioNovo.getNome() != null){
+            usuarioAntigo.setNome(usuarioNovo.getNome());
+        }
+        if(usuarioNovo.getLinguagem() != null){
+            usuarioAntigo.setLinguagem(usuarioNovo.getLinguagem());
+        }
+        if(usuarioNovo.getEndereco() != null){
+            usuarioAntigo.setEndereco(usuarioNovo.getEndereco());
+        }
+    }
+
     @Override
     public void editarUsuario(int index, Usuario usuario) {
-
+        Usuario usuarioProcurado = usuariosList.get(index);
+        editarUsuario(usuarioProcurado, usuario);
     }
-
-    public void editarMeuUsuario(Usuario usuario) {
-        if(usuario.getDadosPessoais() != null){
-            super.setDadosPessoais(usuario.getDadosPessoais());
-        }
-        if(usuario.getInteresse() != null){
-            super.setInteresse(usuario.getInteresse());
-        }
-        if(usuario.getGenero() != null){
-            super.setGenero(usuario.getGenero());
-        }
-        if(usuario.getNome() != null){
-            super.setNome(usuario.getNome());
-        }
-        if(usuario.getLinguagem() != null){
-            super.setLinguagem(usuario.getLinguagem());
-        }
-        if(usuario.getEndereco() != null){
-            super.setEndereco(usuario.getEndereco());
-        }
-    }
-
-//    @Override
-//    public void editarUsuario(int index, Usuario usuario) {
-//        Usuario usuarioProcurado = usuariosList.get(index);
-//
-//        usuarioProcurado.editarMeuUsuario(usuario);
-//
-//        if(usuario.getDadosPessoais() != null){
-//            usuarioProcurado.setDadosPessoais(usuario.getDadosPessoais());
-//        }
-//        if(usuario.getInteresse() != null){
-//            usuarioProcurado.setInteresse(usuario.getInteresse());
-//        }
-//        if(usuario.getGenero() != null){
-//            usuarioProcurado.setGenero(usuario.getGenero());
-//        }
-//        if(usuario.getNome() != null){
-//            usuarioProcurado.setNome(usuario.getNome());
-//        }
-//        if(usuario.getLinguagem() != null){
-//            usuarioProcurado.setLinguagem(usuario.getLinguagem());
-//        }
-//        if(usuario.getEndereco() != null){
-//            usuarioProcurado.setEndereco(usuario.getEndereco());
-//        }
-//    }
 
 
 
