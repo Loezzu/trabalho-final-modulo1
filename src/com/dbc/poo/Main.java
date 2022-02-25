@@ -180,7 +180,9 @@ public class Main {
         System.out.println("Qual seu interesse? ");
         Interesse interesse = Interesse.valueOf(sc.next().toUpperCase(Locale.ROOT));
 
-        Usuario novoUsuario = new Usuario(nome, dados,novoEndereco ,linguagem, genero, interesse);
+//        Usuario novoUsuario = new Usuario(nome, dados,novoEndereco ,linguagem, genero, interesse);
+//        OperacoesUsuario novoUsuario = new OperacoesUsuario();
+        Usuario novoUsuario = new Usuario(nome, dados, novoEndereco,linguagem, genero, interesse);
         opUsuario.cadastrarUsuario(novoUsuario);
 
         int opcaoMenuDois = 0;
@@ -218,7 +220,7 @@ public class Main {
                             System.out.println("Digite o novo nome: ");
                             String novoNome = sc.next();
                             usuarioEditado.setNome(novoNome);
-                            novoUsuario.editarMeuUsuario(usuarioEditado);
+                            opUsuario.editarMeuUsuario(usuarioEditado);
                             break;
                         case 2:
                             usuarioEditado = new Usuario();
@@ -229,28 +231,28 @@ public class Main {
                             String novoEmail = sc.next();
                             DadosPessoais novosDados = new DadosPessoais(novaIdade, novoEmail);
                             usuarioEditado.setDadosPessoais(novosDados);
-                            novoUsuario.editarMeuUsuario(usuarioEditado);
+                            opUsuario.editarMeuUsuario(usuarioEditado);
                             break;
                         case 3:
                             usuarioEditado = new Usuario();
                             System.out.println("Digite a nova linguagem: ");
                             Linguagens novaLinguagem = Linguagens.valueOf(sc.nextLine().toUpperCase(Locale.ROOT).replace(" ", "_"));
                             usuarioEditado.setLinguagem(novaLinguagem);
-                            novoUsuario.editarMeuUsuario(usuarioEditado);
+                            opUsuario.editarMeuUsuario(usuarioEditado);
                             break;
                         case 4:
                             usuarioEditado = new Usuario();
                             System.out.println("Digite o novo genero: ");
                             Genero novoGenero = Genero.valueOf(sc.next().toUpperCase(Locale.ROOT));
                             usuarioEditado.setGenero(novoGenero);
-                            novoUsuario.editarMeuUsuario(usuarioEditado);
+                            opUsuario.editarMeuUsuario(usuarioEditado);
                             break;
                         case 5:
                             usuarioEditado = new Usuario();
                             System.out.println("Digite o novo interesse: ");
                             Interesse novoInteresse = Interesse.valueOf(sc.next().toUpperCase(Locale.ROOT));
                             usuarioEditado.setInteresse(novoInteresse);
-                            novoUsuario.editarMeuUsuario(usuarioEditado);
+                            opUsuario.editarMeuUsuario(usuarioEditado);
                             break;
                         case 6:
                             usuarioEditado = new Usuario();
@@ -264,7 +266,7 @@ public class Main {
                             String novaCidade = sc.nextLine();
                             Endereco newEndereco = new Endereco(rua, num, novaCidade);
                             usuarioEditado.setEndereco(newEndereco);
-                            novoUsuario.editarMeuUsuario(usuarioEditado);
+                            opUsuario.editarMeuUsuario(usuarioEditado);
                             break;
                         default:
                             System.out.println("Erro");
@@ -276,7 +278,8 @@ public class Main {
                     break;
                 }
                 case 5:{
-                    novoUsuario.imprimirMeusDados();
+                    opUsuario.imprimirMeusDados();
+                    break;
                 }
                 case 8:
                     throw new MyException("Conta excluída com sucesso! finalizando programa...");

@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class OperacoesUsuario implements Operacoes{
+public class OperacoesUsuario extends Usuario implements Operacoes{
 
     private final List<Usuario> usuariosList = new ArrayList<>();
+
 
     public List<Usuario> getUsuariosList() {
         return usuariosList;
@@ -64,26 +65,55 @@ public class OperacoesUsuario implements Operacoes{
 
     @Override
     public void editarUsuario(int index, Usuario usuario) {
-        Usuario usuarioProcurado = usuariosList.get(index);
+
+    }
+
+    public void editarMeuUsuario(Usuario usuario) {
         if(usuario.getDadosPessoais() != null){
-            usuarioProcurado.setDadosPessoais(usuario.getDadosPessoais());
+            super.setDadosPessoais(usuario.getDadosPessoais());
         }
         if(usuario.getInteresse() != null){
-            usuarioProcurado.setInteresse(usuario.getInteresse());
+            super.setInteresse(usuario.getInteresse());
         }
         if(usuario.getGenero() != null){
-            usuarioProcurado.setGenero(usuario.getGenero());
+            super.setGenero(usuario.getGenero());
         }
         if(usuario.getNome() != null){
-            usuarioProcurado.setNome(usuario.getNome());
+            super.setNome(usuario.getNome());
         }
         if(usuario.getLinguagem() != null){
-            usuarioProcurado.setLinguagem(usuario.getLinguagem());
+            super.setLinguagem(usuario.getLinguagem());
         }
         if(usuario.getEndereco() != null){
-            usuarioProcurado.setEndereco(usuario.getEndereco());
+            super.setEndereco(usuario.getEndereco());
         }
     }
+
+//    @Override
+//    public void editarUsuario(int index, Usuario usuario) {
+//        Usuario usuarioProcurado = usuariosList.get(index);
+//
+//        usuarioProcurado.editarMeuUsuario(usuario);
+//
+//        if(usuario.getDadosPessoais() != null){
+//            usuarioProcurado.setDadosPessoais(usuario.getDadosPessoais());
+//        }
+//        if(usuario.getInteresse() != null){
+//            usuarioProcurado.setInteresse(usuario.getInteresse());
+//        }
+//        if(usuario.getGenero() != null){
+//            usuarioProcurado.setGenero(usuario.getGenero());
+//        }
+//        if(usuario.getNome() != null){
+//            usuarioProcurado.setNome(usuario.getNome());
+//        }
+//        if(usuario.getLinguagem() != null){
+//            usuarioProcurado.setLinguagem(usuario.getLinguagem());
+//        }
+//        if(usuario.getEndereco() != null){
+//            usuarioProcurado.setEndereco(usuario.getEndereco());
+//        }
+//    }
 
 
 

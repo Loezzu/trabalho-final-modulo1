@@ -81,27 +81,27 @@ public class Usuario {
     public void imprimirMeusDados(){
         System.out.println(this);
     }
-
-    public void editarMeuUsuario(Usuario usuario) {
-        if(usuario.getDadosPessoais() != null){
-            setDadosPessoais(usuario.getDadosPessoais());
-        }
-        if(usuario.getInteresse() != null){
-            setInteresse(usuario.getInteresse());
-        }
-        if(usuario.getGenero() != null){
-            setGenero(usuario.getGenero());
-        }
-        if(usuario.getNome() != null){
-            setNome(usuario.getNome());
-        }
-        if(usuario.getLinguagem() != null){
-            setLinguagem(usuario.getLinguagem());
-        }
-        if(usuario.getEndereco() != null){
-            setEndereco(usuario.getEndereco());
-        }
-    }
+//
+//    public void editarMeuUsuario(Usuario usuario) {
+//        if(usuario.getDadosPessoais() != null){
+//            setDadosPessoais(usuario.getDadosPessoais());
+//        }
+//        if(usuario.getInteresse() != null){
+//            setInteresse(usuario.getInteresse());
+//        }
+//        if(usuario.getGenero() != null){
+//            setGenero(usuario.getGenero());
+//        }
+//        if(usuario.getNome() != null){
+//            setNome(usuario.getNome());
+//        }
+//        if(usuario.getLinguagem() != null){
+//            setLinguagem(usuario.getLinguagem());
+//        }
+//        if(usuario.getEndereco() != null){
+//            setEndereco(usuario.getEndereco());
+//        }
+//    }
 
     @Override
     public String toString() {
@@ -115,4 +115,5 @@ public class Usuario {
                 ", meusMatch=" + meusMatch +
                 '}';
     }
+
 }
