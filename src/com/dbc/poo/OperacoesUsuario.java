@@ -39,9 +39,17 @@ public class OperacoesUsuario implements Operacoes{
                 }
             }
         }else if(usuario.getInteresse().equals(Interesse.AMBOS)){
-            for (int i = 0; i < usuariosList.size(); i++) {
-                if(usuariosList.get(i).hashCode() != usuario.hashCode() && usuariosList.get(i).getInteresse().equals(Interesse.HOMEM)){
-                    System.out.println("Id = " + i + " | " + usuariosList.get(i));
+            if(usuario.getGenero().equals(Genero.MASCULINO)){
+                for (int i = 0; i < usuariosList.size(); i++) {
+                    if(usuariosList.get(i).hashCode() != usuario.hashCode() && (usuariosList.get(i).getGenero().equals(Genero.MASCULINO) || usuariosList.get(i).getGenero().equals(Genero.FEMININO)) &&  (usuariosList.get(i).getInteresse().equals(Interesse.AMBOS) || usuariosList.get(i).getInteresse().equals(Interesse.HOMEM))){
+                        System.out.println("Id = " + i + " | " + usuariosList.get(i));
+                    }
+                }
+            }else{
+                for (int i = 0; i < usuariosList.size(); i++) {
+                    if(usuariosList.get(i).hashCode() != usuario.hashCode() && (usuariosList.get(i).getGenero().equals(Genero.MASCULINO) || usuariosList.get(i).getGenero().equals(Genero.FEMININO)) &&  (usuariosList.get(i).getInteresse().equals(Interesse.AMBOS) || usuariosList.get(i).getInteresse().equals(Interesse.MULHER))){
+                        System.out.println("Id = " + i + " | " + usuariosList.get(i));
+                    }
                 }
             }
         }
@@ -57,11 +65,8 @@ public class OperacoesUsuario implements Operacoes{
     @Override
     public void editarUsuario(int index, Usuario usuario) {
         Usuario usuarioProcurado = usuariosList.get(index);
-        if(usuario.getEmail() != null){
-            usuarioProcurado.setEmail(usuario.getEmail());
-        }
-        if(usuario.getIdade() != null){
-            usuarioProcurado.setIdade(usuario.getIdade());
+        if(usuario.getDadosPessoais() != null){
+            usuarioProcurado.setDadosPessoais(usuario.getDadosPessoais());
         }
         if(usuario.getInteresse() != null){
             usuarioProcurado.setInteresse(usuario.getInteresse());
@@ -74,6 +79,9 @@ public class OperacoesUsuario implements Operacoes{
         }
         if(usuario.getLinguagem() != null){
             usuarioProcurado.setLinguagem(usuario.getLinguagem());
+        }
+        if(usuario.getEndereco() != null){
+            usuarioProcurado.setEndereco(usuario.getEndereco());
         }
     }
 

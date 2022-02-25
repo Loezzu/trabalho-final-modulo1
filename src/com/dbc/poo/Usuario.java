@@ -3,27 +3,47 @@ package com.dbc.poo;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Usuario {
+public class Usuario {
 
     private String nome;
-    private Integer idade;
-    private String email;
+    private DadosPessoais dadosPessoais;
+    private Endereco endereco;
     private Linguagens linguagem;
     private Genero genero;
     private Interesse interesse;
 
-    private List<Usuario> meusMatch = new ArrayList<>();
+    private final List<Usuario> meusMatch = new ArrayList<>();
 
     public Usuario(){
     }
 
-    public Usuario(String nome, Integer idade, String email, Linguagens linguagem, Genero genero, Interesse interesse) {
+    public Usuario(String nome, DadosPessoais dadosPessoais, Endereco endereco, Linguagens linguagem, Genero genero, Interesse interesse) {
         this.nome = nome;
-        this.idade = idade;
-        this.email = email;
+        this.dadosPessoais = dadosPessoais;
+        this.endereco = endereco;
         this.linguagem = linguagem;
         this.genero = genero;
         this.interesse = interesse;
+    }
+
+    public List<Usuario> getMeusMatch() {
+        return meusMatch;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public DadosPessoais getDadosPessoais() {
+        return dadosPessoais;
+    }
+
+    public void setDadosPessoais(DadosPessoais dadosPessoais) {
+        this.dadosPessoais = dadosPessoais;
     }
 
     public String getNome() {
@@ -32,22 +52,6 @@ public abstract class Usuario {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Integer getIdade() {
-        return idade;
-    }
-
-    public void setIdade(Integer idade) {
-        this.idade = idade;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public Linguagens getLinguagem() {
@@ -78,28 +82,9 @@ public abstract class Usuario {
         System.out.println(this);
     }
 
-    public void darMatch(Usuario usuario){
-        if(getLinguagem().equals(usuario.getLinguagem())){
-            meusMatch.add(usuario);
-            usuario.meusMatch.add(this);
-            System.out.println("DEU MATCH");
-        }else {
-            System.out.println("DEU RUIM");
-        }
-    }
-
-    public void imprimirMeusMatch(){
-        meusMatch.forEach(System.out::println);
-    }
-
-
-
     public void editarMeuUsuario(Usuario usuario) {
-        if(usuario.getEmail() != null){
-           setEmail(usuario.getEmail());
-        }
-        if(usuario.getIdade() != null){
-           setIdade(usuario.getIdade());
+        if(usuario.getDadosPessoais() != null){
+            setDadosPessoais(usuario.getDadosPessoais());
         }
         if(usuario.getInteresse() != null){
             setInteresse(usuario.getInteresse());
@@ -113,18 +98,21 @@ public abstract class Usuario {
         if(usuario.getLinguagem() != null){
             setLinguagem(usuario.getLinguagem());
         }
+        if(usuario.getEndereco() != null){
+            setEndereco(usuario.getEndereco());
+        }
     }
-
 
     @Override
     public String toString() {
         return "Usuario{" +
                 "nome='" + nome + '\'' +
-                ", idade=" + idade +
-                ", email='" + email + '\'' +
+                ", dadosPessoais=" + dadosPessoais +
+                ", endereco=" + endereco +
                 ", linguagem=" + linguagem +
                 ", genero=" + genero +
                 ", interesse=" + interesse +
+                ", meusMatch=" + meusMatch +
                 '}';
     }
 }
