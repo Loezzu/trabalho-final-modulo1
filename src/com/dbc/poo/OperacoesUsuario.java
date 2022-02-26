@@ -17,6 +17,7 @@ public class OperacoesUsuario extends Usuario implements Operacoes{
     @Override
     public void cadastrarUsuario(Usuario user) {
         this.usuariosList.add(user);
+        System.out.println("Usuário cadastrado com sucesso!");
     }
 
     @Override
