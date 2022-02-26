@@ -3,6 +3,7 @@ package com.dbc.poo;
 
 
 public class UsuarioPro extends Usuario{
+
     private String whatsapp;
 
     public UsuarioPro() {

@@ -3,15 +3,12 @@ package com.dbc.poo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OperacoesUsuario extends Usuario implements Operacoes{
+public class OperacoesUsuario implements Operacoes{
 
     private final List<Usuario> usuariosList = new ArrayList<>();
 
-
     public OperacoesUsuario() {
     }
-
-
 
     public List<Usuario> getUsuariosList() {
         return usuariosList;
@@ -68,6 +65,11 @@ public class OperacoesUsuario extends Usuario implements Operacoes{
 
     @Override
     public void editarUsuario(Usuario usuarioAntigo, Usuario usuarioNovo) {
+        if(usuarioNovo instanceof UsuarioPro && usuarioAntigo instanceof UsuarioPro){
+            if(((UsuarioPro) usuarioNovo).getWhatsapp() != null){
+                ((UsuarioPro) usuarioAntigo).setWhatsapp(((UsuarioPro) usuarioNovo).getWhatsapp());
+            }
+        }
         if(usuarioNovo.getDadosPessoais() != null){
             usuarioAntigo.setDadosPessoais(usuarioNovo.getDadosPessoais());
         }

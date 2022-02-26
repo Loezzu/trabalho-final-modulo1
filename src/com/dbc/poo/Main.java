@@ -26,11 +26,6 @@ public class Main {
         opUsuario.cadastrarUsuario(romeu);
         opUsuario.cadastrarUsuario(julio);
 
-//        opUsuarioPro.cadastrarUsuario(new Usuario("luiz", new DadosPessoais(19, "luiz@gmail.com"), new Endereco("rua jose", 123, "gravataí"), Linguagens.JAVA, Genero.MASCULINO, Interesse.MULHER));
-//        opUsuarioPro.cadastrarUsuarioo(guilherme, new UsuarioPro("aaaaaaaaaa"));
-
-//        UsuarioPro opUsuarioPro = new UsuarioPro(joao);
-
         int opcaoMenu = 0;
         while (opcaoMenu != 9) {
             System.out.println();
@@ -70,12 +65,15 @@ public class Main {
                     System.out.println("Qual seu interesse? ");
                     Interesse interesse = Interesse.valueOf(sc.next().toUpperCase(Locale.ROOT));
 
+                    //System.out.println("UsuarioPro: 1 - sim | 2 - não");
+                    // FAZER METODO PARA IMPLEMENTAR USUARIO PADRÃO OU PRO (FAZER NO MENU DEBAIXO TBM)
+
+
                     Usuario novoUsuario = new Usuario(nome, dados, novoEndereco,linguagem, genero, interesse);
                     opUsuario.cadastrarUsuario(novoUsuario);
                     break;
                 case 2:
                     opUsuario.listarTodosUsuarios();
-//                  opUsuarioPro.listarTodosUsuarios();
                     break;
                 case 3:
                     System.out.println("Qual pessoa deseja editar?");
@@ -85,7 +83,11 @@ public class Main {
                         System.out.println("Não existe essa pessoa, tente novamente: ");
                         index = sc.nextInt();
                     }
-                    System.out.println("O que deseja editar?  1 - Nome | 2 - Dados Pessoais | 3 - Linguagem | 4 - Genero | 5 - Interesse | 6 - Endereço | 7 - whatsapp (apenas pro)");
+                    if(opUsuario.getUsuariosList().get(index) instanceof UsuarioPro){
+                        System.out.println("O que deseja editar?  1 - Nome | 2 - Dados Pessoais | 3 - Linguagem | 4 - Genero | 5 - Interesse | 6 - Endereço | 7 - whatsapp");
+                    }else{
+                        System.out.println("O que deseja editar?  1 - Nome | 2 - Dados Pessoais | 3 - Linguagem | 4 - Genero | 5 - Interesse | 6 - Endereço");
+                    }
                     int opcao = sc.nextInt();
                     sc.nextLine();
                     switch (opcao) {
@@ -141,6 +143,17 @@ public class Main {
                             Endereco newEndereco = new Endereco(rua, num, novaCidade);
                             usuarioEditado.setEndereco(newEndereco);
                             opUsuario.editarUsuario(index,usuarioEditado);
+                            break;
+                        case 7:
+                            if(opUsuario.getUsuariosList().get(index) instanceof UsuarioPro){
+                                UsuarioPro userEditado = new UsuarioPro();
+                                System.out.println("Digite o novo whats: ");
+                                String whatsapp = sc.next();
+                                userEditado.setWhatsapp(whatsapp);
+                                opUsuario.editarUsuario(index, userEditado);
+                            }else {
+                                System.out.println("Você não é usuario PRO");
+                            }
                             break;
                         default:
                             System.out.println("Erro");
