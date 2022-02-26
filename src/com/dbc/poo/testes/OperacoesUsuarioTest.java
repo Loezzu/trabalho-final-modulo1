@@ -3,6 +3,7 @@ package com.dbc.poo.testes;
 import com.dbc.poo.*;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
@@ -37,6 +38,30 @@ public class OperacoesUsuarioTest {
         assertEquals(Linguagens.JAVA, user.getLinguagem());
         assertEquals(Genero.MASCULINO, user.getGenero());
         assertEquals(Interesse.MULHER, user.getInteresse());
+
+    }
+
+
+    @Test
+    public void deveRemoverUsuariosPorIndice() {
+        //SETUP
+        OperacoesUsuario opUsuario = new OperacoesUsuario();
+        Usuario user = new Usuario();
+        Usuario user2 = new Usuario();
+        user.setNome("Matheus");
+        user2.setNome("Luiz");
+        opUsuario.cadastrarUsuario(user);
+        opUsuario.cadastrarUsuario(user2);
+        opUsuario.listarTodosUsuarios();
+
+        //ACT
+        opUsuario.removerUsuarioPorIndice(1);
+
+        //ASSERT
+        ArrayList<Usuario> listaEsperada = new ArrayList<>();
+        listaEsperada.add(user);
+        assertEquals(listaEsperada, opUsuario.getUsuariosList());
+        opUsuario.listarTodosUsuarios();
 
     }
 

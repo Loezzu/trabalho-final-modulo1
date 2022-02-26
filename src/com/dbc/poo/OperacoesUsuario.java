@@ -3,7 +3,7 @@ package com.dbc.poo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OperacoesUsuario extends Usuario implements Operacoes{
+public class OperacoesUsuario implements Operacoes{
 
     private final List<Usuario> usuariosList = new ArrayList<>();
 
@@ -17,7 +17,6 @@ public class OperacoesUsuario extends Usuario implements Operacoes{
     @Override
     public void cadastrarUsuario(Usuario user) {
         this.usuariosList.add(user);
-        System.out.println("Usuário cadastrado com sucesso!");
     }
 
     @Override

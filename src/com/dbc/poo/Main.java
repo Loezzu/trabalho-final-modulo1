@@ -312,7 +312,7 @@ public class Main {
                     break;
                 }
                 case 5:{
-                    opUsuario.imprimirMeusDados(novoUsuario);
+                    novoUsuario.imprimirMeusDados();
                     break;
                 }
                 case 6:

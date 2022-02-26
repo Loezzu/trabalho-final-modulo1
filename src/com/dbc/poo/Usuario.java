@@ -78,8 +78,8 @@ public class Usuario {
         this.interesse = interesse;
     }
 
-    public void imprimirMeusDados(Usuario usuario){
-        System.out.println(usuario);
+    public void imprimirMeusDados(){
+        System.out.println(this);
     }
 
     @Override
