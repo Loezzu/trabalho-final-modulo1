@@ -8,6 +8,10 @@ public class OperacoesUsuario extends Usuario implements Operacoes{
     private final List<Usuario> usuariosList = new ArrayList<>();
 
 
+    public OperacoesUsuario() {
+    }
+
+
 
     public List<Usuario> getUsuariosList() {
         return usuariosList;
