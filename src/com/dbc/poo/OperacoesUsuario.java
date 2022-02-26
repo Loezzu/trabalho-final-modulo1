@@ -3,7 +3,7 @@ package com.dbc.poo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OperacoesUsuario implements Operacoes{
+public class OperacoesUsuario extends Usuario implements Operacoes{
 
     private final List<Usuario> usuariosList = new ArrayList<>();
 
@@ -96,6 +96,15 @@ public class OperacoesUsuario implements Operacoes{
         editarUsuario(usuarioProcurado, usuario);
     }
 
+
+    public void tornarPro(Usuario user, String whats) {
+        UsuarioPro userPro = new UsuarioPro();
+        userPro.setWhatsapp(whats);
+        user = userPro;
+
+        //lógica para tornar usuario pro...
+
+    }
 
 
 }
