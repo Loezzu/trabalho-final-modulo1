@@ -3,7 +3,7 @@ package com.dbc.poo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Usuario {
+public abstract class Usuario {
 
     private String nome;
     private DadosPessoais dadosPessoais;

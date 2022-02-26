@@ -17,7 +17,7 @@ public class OperacoesUsuarioTest {
     public void deveCadastrarUsuarioComSucesso() {
         //SETUP
         OperacoesUsuario opUsuario = new OperacoesUsuario();
-        Usuario user = new Usuario();
+        Usuario user = new UsuarioFree();
         user.setNome("Luiz");
         DadosPessoais dadosPessoais = new DadosPessoais();
         dadosPessoais.setIdade(19);
@@ -46,8 +46,8 @@ public class OperacoesUsuarioTest {
     public void deveRemoverUsuariosPorIndice() {
         //SETUP
         OperacoesUsuario opUsuario = new OperacoesUsuario();
-        Usuario user = new Usuario();
-        Usuario user2 = new Usuario();
+        Usuario user = new UsuarioFree();
+        Usuario user2 = new UsuarioFree();
         user.setNome("Matheus");
         user2.setNome("Luiz");
         opUsuario.cadastrarUsuario(user);
