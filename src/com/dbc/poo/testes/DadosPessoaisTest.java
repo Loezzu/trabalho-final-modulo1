@@ -6,7 +6,6 @@ import org.junit.Test;
 public class DadosPessoaisTest {
 
 
-
     @Test
     public void deveImprimirDadosPessoais() {
         // Arrange

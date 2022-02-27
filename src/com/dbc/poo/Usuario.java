@@ -13,6 +13,8 @@ public abstract class Usuario {
     private Interesse interesse;
 
     private final List<Usuario> meusMatch = new ArrayList<>();
+    private final List<Usuario> meusLikes = new ArrayList<>();
+
 
     public Usuario(){
     }
@@ -24,6 +26,10 @@ public abstract class Usuario {
         this.linguagem = linguagem;
         this.genero = genero;
         this.interesse = interesse;
+    }
+
+    public List<Usuario> getMeusLikes() {
+        return meusLikes;
     }
 
     public List<Usuario> getMeusMatch() {
@@ -82,6 +88,20 @@ public abstract class Usuario {
         System.out.println(this);
     }
 
+//    @Override
+//    public String toString() {
+//        return "Usuario{" +
+//                "nome='" + nome + '\'' +
+//                ", dadosPessoais=" + dadosPessoais +
+//                ", endereco=" + endereco +
+//                ", linguagem=" + linguagem +
+//                ", genero=" + genero +
+//                ", interesse=" + interesse +
+//                ", meusMatch=" + meusMatch +
+//                '}';
+//    }
+
+
     @Override
     public String toString() {
         return "Usuario{" +
@@ -91,9 +111,6 @@ public abstract class Usuario {
                 ", linguagem=" + linguagem +
                 ", genero=" + genero +
                 ", interesse=" + interesse +
-                ", meusMatch=" + meusMatch +
                 '}';
     }
-
-
 }

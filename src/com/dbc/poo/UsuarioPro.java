@@ -24,6 +24,9 @@ public class UsuarioPro extends Usuario{
         return whatsapp;
     }
 
+    public void imprimirUsuarioPro() {
+        System.out.println(this);
+    }
 
     @Override
     public String toString() {
@@ -34,8 +37,7 @@ public class UsuarioPro extends Usuario{
                 ", linguagem=" + getLinguagem() +
                 ", genero=" + getGenero() +
                 ", interesse=" + getInteresse() +
-                ", meusMatch=" + getMeusMatch() +
-                ", whatsapp=" + whatsapp +
+                ", whatsapp='" + whatsapp  +
                 '}';
     }
 }

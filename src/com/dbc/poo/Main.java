@@ -13,6 +13,10 @@ public class Main {
 
 
         Match match = new Match();
+        Match match2 = new Match();
+        Like like = new Like();
+
+
 
         UsuarioFree guilherme = new UsuarioFree("Guilherme", new DadosPessoais(20, "meuemail@gmail.com"), new Endereco("Rua marcos", 20, "Cachoeirinha"), Linguagens.JAVA, Genero.MASCULINO, Interesse.MULHER);
         UsuarioFree marina = new UsuarioFree("Marina", new DadosPessoais(25, "meuemail@gmail.com"), new Endereco("Rua Rogerio", 20, "Cachoeirinha"), Linguagens.JAVA, Genero.FEMININO, Interesse.AMBOS);
@@ -26,6 +30,7 @@ public class Main {
         opUsuario.cadastrarUsuario(romeu);
         opUsuario.cadastrarUsuario(julio);
 
+
         int opcaoMenu = 0;
         while (opcaoMenu != 9) {
             System.out.println();
@@ -35,6 +40,8 @@ public class Main {
             System.out.println("Digite 4 para excluir pessoas");
             System.out.println("Digite 5 para simular Match");
             System.out.println("Digite 6 para listar Matchs");
+            System.out.println("Digite 7 para dar like");
+            System.out.println("Digite 10 para imprimir likes");
             System.out.println("Digite 8 para parar o programa");
             opcaoMenu = sc.nextInt();
             sc.nextLine();
@@ -201,9 +208,38 @@ public class Main {
                     int idUser = sc.nextInt();
                     match.imprimirMeusMatch(opUsuario.getUsuariosList().get(idUser));
                     break;
+
+                case 7:
+                    System.out.println("Quem deseja escolher: ");
+                    opUsuario.listarTodosUsuarios();
+                    int indexLike = sc.nextInt();
+                    while (indexLike > opUsuario.getUsuariosList().size() - 1 || indexLike < 0) {
+                        System.out.println("Não existe essa pessoa, tente novamente: ");
+                        indexLike = sc.nextInt();
+                    }
+                    System.out.println("Escolha o indice do usuario que deseja dar like: ");
+                    opUsuario.listarUsuariosDisponiveis(opUsuario.getUsuariosList().get(indexLike));
+                    int indexLike2 = sc.nextInt();
+                    while (indexLike2 > opUsuario.getUsuariosList().size() - 1 || indexLike2 < 0) {
+                        System.out.println("Não existe essa pessoa, tente novamente: ");
+                        indexLike2 = sc.nextInt();
+                    }
+                    like.darLike(opUsuario.getUsuariosList().get(indexLike), opUsuario.getUsuariosList().get(indexLike2));
+
+                    break;
                 case 8:
                     throw new MyException("Programa finalizado!");
                 case 9:
+                    break;
+                case 10:
+                    System.out.println("Informe qual usuario deseja imprimir os likes: ");
+                    opUsuario.listarTodosUsuarios();
+                    int indexLikes = sc.nextInt();
+                    while (indexLikes > opUsuario.getUsuariosList().size() - 1 || indexLikes < 0) {
+                        System.out.println("Não existe essa pessoa, tente novamente: ");
+                        indexLikes = sc.nextInt();
+                    }
+                    like.imprimirLikes(opUsuario.getUsuariosList().get(indexLikes));
                     break;
                 default:
                     System.out.println("Opção Invalida!");
