@@ -1,8 +1,8 @@
-package com.dbc.poo;
+package com.dbc.poo.exceptions;
 
 public class MyException extends RuntimeException{
 
-    MyException(String msg){
+    public MyException(String msg){
         super(msg);
     }
 }

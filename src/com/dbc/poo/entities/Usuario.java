@@ -1,4 +1,8 @@
-package com.dbc.poo;
+package com.dbc.poo.entities;
+
+import com.dbc.poo.enums.Genero;
+import com.dbc.poo.enums.Interesse;
+import com.dbc.poo.enums.Linguagens;
 
 import java.util.ArrayList;
 import java.util.List;

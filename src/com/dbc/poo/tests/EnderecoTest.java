@@ -1,6 +1,6 @@
-package com.dbc.poo.testes;
+package com.dbc.poo.tests;
 
-import com.dbc.poo.Endereco;
+import com.dbc.poo.entities.Endereco;
 import org.junit.Test;
 
 public class EnderecoTest {

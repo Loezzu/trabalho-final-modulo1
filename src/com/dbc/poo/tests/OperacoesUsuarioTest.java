@@ -1,10 +1,12 @@
-package com.dbc.poo.testes;
+package com.dbc.poo.tests;
 
-import com.dbc.poo.*;
+import com.dbc.poo.entities.*;
+import com.dbc.poo.enums.Genero;
+import com.dbc.poo.enums.Interesse;
+import com.dbc.poo.enums.Linguagens;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 import static org.junit.Assert.*;
 

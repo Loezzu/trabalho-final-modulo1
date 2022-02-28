@@ -1,5 +1,12 @@
 package com.dbc.poo;
 
+import com.dbc.poo.entities.*;
+import com.dbc.poo.enums.Genero;
+import com.dbc.poo.enums.Interesse;
+import com.dbc.poo.enums.Linguagens;
+import com.dbc.poo.exceptions.MyException;
+
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -16,18 +23,23 @@ public class Main {
         Like like = new Like();
 
 
-
         UsuarioFree guilherme = new UsuarioFree("Guilherme", new DadosPessoais(20, "meuemail@gmail.com"), new Endereco("Rua marcos", 20, "Cachoeirinha"), Linguagens.JAVA, Genero.MASCULINO, Interesse.MULHER);
         UsuarioFree marina = new UsuarioFree("Marina", new DadosPessoais(25, "meuemail@gmail.com"), new Endereco("Rua Rogerio", 20, "Cachoeirinha"), Linguagens.JAVA, Genero.FEMININO, Interesse.AMBOS);
+        UsuarioFree Julia = new UsuarioFree("Julia", new DadosPessoais(25, "meuemail@gmail.com"), new Endereco("Rua Rogerio", 20, "Cachoeirinha"), Linguagens.JAVA, Genero.FEMININO, Interesse.HOMEM);
+        UsuarioFree Ellen = new UsuarioFree("Ellen", new DadosPessoais(25, "meuemail@gmail.com"), new Endereco("Rua Rogerio", 20, "Cachoeirinha"), Linguagens.JAVA, Genero.FEMININO, Interesse.MULHER);
         UsuarioFree joao = new UsuarioFree("Joao", new DadosPessoais(29, "meuemail@gmail.com"), new Endereco("Rua Juliano", 20, "Gravatai"), Linguagens.JAVA, Genero.MASCULINO, Interesse.HOMEM);
         UsuarioFree romeu = new UsuarioFree("Romeu", new DadosPessoais(31, "meuemail@gmail.com"), new Endereco("Rua Anderson", 20, "Canoas"), Linguagens.JAVA, Genero.MASCULINO, Interesse.AMBOS);
         UsuarioPro julio = new UsuarioPro("Julio", new DadosPessoais(31, "meuemail@gmail.com"), new Endereco("Rua Anderson", 20, "Canoas"), Linguagens.JAVA, Genero.MASCULINO, Interesse.AMBOS, "aaaa");
+        UsuarioPro marcos = new UsuarioPro("Marcos", new DadosPessoais(31, "meuemail@gmail.com"), new Endereco("Rua Anderson", 20, "Canoas"), Linguagens.PYTHON, Genero.MASCULINO, Interesse.AMBOS, "aaaa");
 
         opUsuario.cadastrarUsuario(guilherme);
         opUsuario.cadastrarUsuario(marina);
+        opUsuario.cadastrarUsuario(Julia);
+        opUsuario.cadastrarUsuario(Ellen);
         opUsuario.cadastrarUsuario(joao);
         opUsuario.cadastrarUsuario(romeu);
         opUsuario.cadastrarUsuario(julio);
+        opUsuario.cadastrarUsuario(marcos);
 
 
         int opcaoMenu = 0;
@@ -191,7 +203,8 @@ public class Main {
                         index1 = sc.nextInt();
                     }
                      System.out.println("Escolha o indice do segundo Match: ");;
-                     opUsuario.listarUsuariosDisponiveis(opUsuario.getUsuariosList().get(index1));
+                     List<Usuario> listaParaMatch = opUsuario.listarUsuariosDisponiveis(opUsuario.getUsuariosList().get(index1));
+                     opUsuario.exibirUsuarios(listaParaMatch);
                      int index2 = sc.nextInt();
                      while (index2 > opUsuario.getUsuariosList().size() - 1 || index2 < 0) {
                          System.out.println("Não existe essa pessoa, tente novamente: ");
@@ -214,14 +227,10 @@ public class Main {
                         System.out.println("Não existe essa pessoa, tente novamente: ");
                         indexLike = sc.nextInt();
                     }
-                    System.out.println("Escolha o indice do usuario que deseja dar like: ");
-                    opUsuario.listarUsuariosDisponiveis(opUsuario.getUsuariosList().get(indexLike));
-                    int indexLike2 = sc.nextInt();
-                    while (indexLike2 > opUsuario.getUsuariosList().size() - 1 || indexLike2 < 0) {
-                        System.out.println("Não existe essa pessoa, tente novamente: ");
-                        indexLike2 = sc.nextInt();
-                    }
-                    like.darLike(opUsuario.getUsuariosList().get(indexLike), opUsuario.getUsuariosList().get(indexLike2));
+                    System.out.println("Escolha o indice do usuario que deseja dar like: \n");
+                    List<Usuario> usuariosDisponiveis = opUsuario.listarUsuariosDisponiveis(opUsuario.getUsuariosList().get(indexLike));
+
+                    like.exibirOpcoes(usuariosDisponiveis, opUsuario.getUsuariosList().get(indexLike));
 
                     break;
                 case 8:

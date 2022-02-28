@@ -1,6 +1,11 @@
-package com.dbc.poo.testes;
+package com.dbc.poo.tests;
 
-import com.dbc.poo.*;
+import com.dbc.poo.entities.DadosPessoais;
+import com.dbc.poo.entities.Endereco;
+import com.dbc.poo.entities.UsuarioFree;
+import com.dbc.poo.enums.Genero;
+import com.dbc.poo.enums.Interesse;
+import com.dbc.poo.enums.Linguagens;
 import org.junit.Test;
 
 public class UsuarioTest {

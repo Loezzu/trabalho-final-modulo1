@@ -1,4 +1,4 @@
-package com.dbc.poo;
+package com.dbc.poo.interfaces;
 
 public interface Imprimir {
     void imprimirUsuario();

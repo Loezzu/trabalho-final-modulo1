@@ -1,8 +1,12 @@
-package com.dbc.poo;
+package com.dbc.poo.entities;
 
 
+import com.dbc.poo.enums.Genero;
+import com.dbc.poo.enums.Interesse;
+import com.dbc.poo.enums.Linguagens;
+import com.dbc.poo.interfaces.Imprimir;
 
-public class UsuarioPro extends Usuario implements Imprimir{
+public class UsuarioPro extends Usuario implements Imprimir {
 
     private String whatsapp;
 

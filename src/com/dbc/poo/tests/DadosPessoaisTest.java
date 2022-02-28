@@ -1,6 +1,6 @@
-package com.dbc.poo.testes;
+package com.dbc.poo.tests;
 
-import com.dbc.poo.DadosPessoais;
+import com.dbc.poo.entities.DadosPessoais;
 import org.junit.Test;
 
 public class DadosPessoaisTest {
