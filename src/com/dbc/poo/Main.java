@@ -13,7 +13,6 @@ public class Main {
 
 
         Match match = new Match();
-        Match match2 = new Match();
         Like like = new Like();
 
 
@@ -73,7 +72,6 @@ public class Main {
                     System.out.println("Qual seu interesse? ");
                     Interesse interesse = Interesse.valueOf(sc.next().toUpperCase(Locale.ROOT));
 
-                    //System.out.println("UsuarioPro: 1 - sim | 2 - não");
                     System.out.println("Qual tipo de usuário deseja cadastrar: \n" +
                                         "1 - Usuário Comum \n" +
                                         "2 - Usuário Pro \n");
@@ -194,7 +192,6 @@ public class Main {
                     }
                      System.out.println("Escolha o indice do segundo Match: ");;
                      opUsuario.listarUsuariosDisponiveis(opUsuario.getUsuariosList().get(index1));
-//                     opUsuario.listarUsuariosDisponiveis(opUsuario.getUsuariosList().);
                      int index2 = sc.nextInt();
                      while (index2 > opUsuario.getUsuariosList().size() - 1 || index2 < 0) {
                          System.out.println("Não existe essa pessoa, tente novamente: ");

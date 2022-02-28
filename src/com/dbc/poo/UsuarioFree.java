@@ -1,6 +1,6 @@
 package com.dbc.poo;
 
-public class UsuarioFree extends Usuario {
+public class UsuarioFree extends Usuario implements Imprimir {
     public UsuarioFree() {
     }
 
@@ -8,9 +8,6 @@ public class UsuarioFree extends Usuario {
         super(nome, dadosPessoais, endereco, linguagem, genero, interesse);
     }
 
-    public void imprimirUsuarioFree(){
-        System.out.println(this);
-    }
 
     @Override
     public String toString() {
@@ -22,5 +19,10 @@ public class UsuarioFree extends Usuario {
                 ", genero=" + getGenero() +
                 ", interesse=" + getInteresse() +
                 '}';
+    }
+
+    @Override
+    public void imprimirUsuario() {
+        System.out.println(this);
     }
 }

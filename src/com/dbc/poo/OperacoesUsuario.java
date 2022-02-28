@@ -63,47 +63,34 @@ public class OperacoesUsuario implements Operacoes{
     }
 
 
-    @Override
-    public void editarUsuario(Usuario usuarioAntigo, Usuario usuarioNovo) {
-        if(usuarioNovo instanceof UsuarioPro && usuarioAntigo instanceof UsuarioPro){
-            if(((UsuarioPro) usuarioNovo).getWhatsapp() != null){
-                ((UsuarioPro) usuarioAntigo).setWhatsapp(((UsuarioPro) usuarioNovo).getWhatsapp());
-            }
-        }
-        if(usuarioNovo.getDadosPessoais() != null){
-            usuarioAntigo.setDadosPessoais(usuarioNovo.getDadosPessoais());
-        }
-        if(usuarioNovo.getInteresse() != null){
-            usuarioAntigo.setInteresse(usuarioNovo.getInteresse());
-        }
-        if(usuarioNovo.getGenero() != null){
-            usuarioAntigo.setGenero(usuarioNovo.getGenero());
-        }
-        if(usuarioNovo.getNome() != null){
-            usuarioAntigo.setNome(usuarioNovo.getNome());
-        }
-        if(usuarioNovo.getLinguagem() != null){
-            usuarioAntigo.setLinguagem(usuarioNovo.getLinguagem());
-        }
-        if(usuarioNovo.getEndereco() != null){
-            usuarioAntigo.setEndereco(usuarioNovo.getEndereco());
-        }
-    }
 
     @Override
     public void editarUsuario(int index, Usuario usuario) {
         Usuario usuarioProcurado = usuariosList.get(index);
-        editarUsuario(usuarioProcurado, usuario);
-    }
 
-
-    public void tornarPro(Usuario user, String whats) {
-        UsuarioPro userPro = new UsuarioPro();
-        userPro.setWhatsapp(whats);
-        user = userPro;
-
-        //lógica para tornar usuario pro...
-
+        if(usuario instanceof UsuarioPro){
+            if(((UsuarioPro) usuario).getWhatsapp() != null){
+                ((UsuarioPro) usuarioProcurado).setWhatsapp(((UsuarioPro) usuario).getWhatsapp());
+            }
+        }
+        if(usuario.getDadosPessoais() != null){
+            usuarioProcurado.setDadosPessoais(usuario.getDadosPessoais());
+        }
+        if(usuario.getInteresse() != null){
+            usuarioProcurado.setInteresse(usuario.getInteresse());
+        }
+        if(usuario.getGenero() != null){
+            usuarioProcurado.setGenero(usuario.getGenero());
+        }
+        if(usuario.getNome() != null){
+            usuarioProcurado.setNome(usuario.getNome());
+        }
+        if(usuario.getLinguagem() != null){
+            usuarioProcurado.setLinguagem(usuario.getLinguagem());
+        }
+        if(usuario.getEndereco() != null){
+            usuarioProcurado.setEndereco(usuario.getEndereco());
+        }
     }
 
 

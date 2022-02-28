@@ -2,7 +2,7 @@ package com.dbc.poo;
 
 
 
-public class UsuarioPro extends Usuario{
+public class UsuarioPro extends Usuario implements Imprimir{
 
     private String whatsapp;
 
@@ -24,7 +24,8 @@ public class UsuarioPro extends Usuario{
         return whatsapp;
     }
 
-    public void imprimirUsuarioPro() {
+    @Override
+    public void imprimirUsuario() {
         System.out.println(this);
     }
 
@@ -37,7 +38,9 @@ public class UsuarioPro extends Usuario{
                 ", linguagem=" + getLinguagem() +
                 ", genero=" + getGenero() +
                 ", interesse=" + getInteresse() +
-                ", whatsapp='" + whatsapp  +
+                ", whatsapp=" + whatsapp  +
                 '}';
     }
+
+
 }

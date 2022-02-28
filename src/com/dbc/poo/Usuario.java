@@ -84,22 +84,6 @@ public abstract class Usuario {
         this.interesse = interesse;
     }
 
-    public void imprimirMeusDados(){
-        System.out.println(this);
-    }
-
-//    @Override
-//    public String toString() {
-//        return "Usuario{" +
-//                "nome='" + nome + '\'' +
-//                ", dadosPessoais=" + dadosPessoais +
-//                ", endereco=" + endereco +
-//                ", linguagem=" + linguagem +
-//                ", genero=" + genero +
-//                ", interesse=" + interesse +
-//                ", meusMatch=" + meusMatch +
-//                '}';
-//    }
 
 
     @Override

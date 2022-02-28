@@ -7,5 +7,4 @@ public interface Operacoes {
     void listarUsuariosDisponiveis(Usuario usuario);
     void removerUsuarioPorIndice(int index);
     void editarUsuario(int index, Usuario usuario);
-    void editarUsuario(Usuario usuario, Usuario usuario2);
 }
