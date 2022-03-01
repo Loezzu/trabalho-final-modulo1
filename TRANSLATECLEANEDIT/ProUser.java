@@ -1,4 +1,4 @@
-package com.company;
+package com.dbc.poo.TRANSLATECLEANEDIT;
 
 public class ProUser extends User {
     private String whatsApp;
@@ -13,6 +13,11 @@ public class ProUser extends User {
     }
     public void setWhatsApp(String whatsApp) {
         this.whatsApp = whatsApp;
+    }
+
+    @Override
+    public void printMyInfo() {
+        System.out.println(this);
     }
 
     @Override

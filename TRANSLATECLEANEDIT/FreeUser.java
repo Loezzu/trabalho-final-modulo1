@@ -1,4 +1,4 @@
-package com.company;
+package com.dbc.poo.TRANSLATECLEANEDIT;
 
 public class FreeUser extends User {
     public FreeUser() {
@@ -6,6 +6,11 @@ public class FreeUser extends User {
 
     public FreeUser(String username, String password, PersoInfo persoInfo, Address address, ProgLangs progLangs, Gender gender, Pref pref) {
         super(username, password, persoInfo, address, progLangs, gender, pref);
+    }
+
+    @Override
+    public void printMyInfo() {
+        System.out.println(this);
     }
 
     @Override
@@ -20,3 +25,4 @@ public class FreeUser extends User {
                 '}';
     }
 }
+

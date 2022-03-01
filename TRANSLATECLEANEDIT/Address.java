@@ -1,4 +1,4 @@
-package com.company;
+package com.dbc.poo.TRANSLATECLEANEDIT;
 
 public class Address {
     private String street;
