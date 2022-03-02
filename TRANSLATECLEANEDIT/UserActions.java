@@ -9,14 +9,15 @@ import static java.lang.String.valueOf;
 public class UserActions implements Actions{
     static List<User> userList = new ArrayList<>();
     Scanner scan = new Scanner(System.in);
+    Match match = new Match();
+    TinDev tinder = new TinDev();
 
     public void registerUser() {
-        int pro;
         System.out.println("""
                 \nVocê deseja assinar o plano pro?
                 1 - SIM
                 2 - NÃO""");
-        pro = scan.nextInt();
+        int pro = scan.nextInt();
         scan.nextLine();
 
         String username = registerUsername();
@@ -44,11 +45,9 @@ public class UserActions implements Actions{
             }
         }
     }
-
     public void listCandidates() {
 
     }
-
     public void updateUser(User user) {
         int editMenu = 0;
         System.out.println("""
@@ -102,10 +101,9 @@ public class UserActions implements Actions{
             }
         }
         else {
-            updateUser(user);
+            userMenu(user);
         }
     }
-
     public void deleteUser(User user) {
         int delOption = 0;
         System.out.println("""
@@ -136,7 +134,7 @@ public class UserActions implements Actions{
                 System.out.println("Senha:");
                 String passwordLogin = scan.nextLine();
                 if (passwordLogin.equals(userList.get(i).getPassword())) {
-                    System.out.println("\nBem-vindo, "+userList.get(i).getPersoInfo().getRealName()+"\n");
+                    System.out.println("\nBem-vindo, "+userList.get(i).getPersoInfo().getRealName()+"!\n");
                     User loggedUser = userList.get(i);
                     userMenu(loggedUser);
                 }
@@ -145,30 +143,33 @@ public class UserActions implements Actions{
                     login();
                 }
             }
+            else {
+                System.out.println("Usuário não encontrado.");
+                login();
+            }
         }
     }
 
     public void userMenu(User user) {
-        int userMenu = 0;
         System.out.println("""
                     \n[MENU]
                     1 - Procurar parceiros
-                    2 - Mostrar sua lista de matches
-                    3 - Editar seu perfil
-                    4 - Mostrar seu perfil
+                    2 - Editar seu perfil
+                    3 - Mostrar seu perfil
                     8 - Deletar perfil
                     9 - Fazer logout""");
-        userMenu = scan.nextInt();
+        int userMenu = scan.nextInt();
         scan.nextLine();
 
         switch (userMenu) {
-                case 3 -> updateUser(user);
-                case 4 -> {
-                    user.printMyInfo();
-                    userMenu(user);
-                }
-                case 8 -> deleteUser(user);
-                case 9 -> appInit();
+            case 1 -> tinder.tinDev(user);
+            case 2 -> updateUser(user);
+            case 3 -> {
+                user.printMyInfo();
+                userMenu(user);
+            }
+            case 8 -> deleteUser(user);
+            case 9 -> appInit();
             }
     }
 
@@ -395,14 +396,13 @@ public class UserActions implements Actions{
     }
 
     public void appInit() {
-        int menu = 0;
         System.out.println("""
             \nBem vindo(a) ao TinDev!
             Digite a opção desejada:
             1 - Login
             2 - Cadastro""");
 
-        menu = scan.nextInt();
+        int menu = scan.nextInt();
         scan.nextLine();
 
         switch (menu) {
@@ -412,6 +412,31 @@ public class UserActions implements Actions{
             case 2 -> {
                 registerUser();
             }
+            default -> {
+                System.out.println("Tente novamente.");
+                appInit ();
+            }
+        }
+    }
+
+    public List<User> listAvailableUsers(User user) {
+        List<User> availableUsers = new ArrayList<>();
+        for (int i = 0; i < userList.size(); i++) {
+            User currentUser = userList.get(i);
+            if(currentUser.hashCode() == user.hashCode() || user.getMyLikes().contains(currentUser)){
+                continue;
+            }
+            if(user.getPref().isCompatible(currentUser.getGender()) && currentUser.getPref().isCompatible(user.getGender())) {
+                availableUsers.add(currentUser);
+            }
+        }
+        return availableUsers;
+    }
+
+
+    public void exibirUsuarios(List<User> users)  {
+        for (int i=0; i<users.size(); i++) {
+            System.out.println("ID: " +i+ " | " +users.get(i));
         }
     }
 

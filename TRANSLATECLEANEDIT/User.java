@@ -1,5 +1,8 @@
 package com.dbc.poo.TRANSLATECLEANEDIT;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class User{
     private String username;
     private String password;
@@ -8,6 +11,10 @@ public abstract class User{
     private ProgLangs progLangs;
     private Gender gender;
     private Pref pref;
+
+    private final List<User> myMatches = new ArrayList<>();
+    private final List<User> myLikes = new ArrayList<>();
+
 
     public String getUsername() {
         return username;
@@ -58,6 +65,13 @@ public abstract class User{
         this.pref = pref;
     }
 
+    public List<User> getMyMatches() {
+        return myMatches;
+    }
+    public List<User> getMyLikes() {
+        return myLikes;
+    }
+
     public User() {
     }
 
@@ -73,6 +87,12 @@ public abstract class User{
 
     public void printMyInfo() {
         System.out.println(this);
+    }
+    public void printMyMatches() {
+        System.out.println(myMatches);
+    }
+    public void printMyLikes() {
+        System.out.println(myLikes);
     }
 
     @Override

@@ -11,6 +11,9 @@ public class PersoInfo {
         this.email = email;
     }
 
+    public PersoInfo() {
+    }
+
     public String getRealName() {
         return realName;
     }
