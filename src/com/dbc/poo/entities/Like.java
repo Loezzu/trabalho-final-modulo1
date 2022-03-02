@@ -5,12 +5,12 @@ import java.util.Scanner;
 
 public class Like {
     Scanner scan = new Scanner(System.in);
-    TinDev tinder = new TinDev();
+    UserActions userAct = new UserActions();
 
     public void listCandidates(List<User> userList, User user1) {
         boolean itsAMatch = false;
         for (User userChoice : userList) {
-            System.out.println(userChoice);
+            System.out.println("\n"+userChoice);
             System.out.println("\nDeseja dar like? (S/N)");
             String choice = scan.nextLine();
             if (choice.equalsIgnoreCase("s") || choice.equalsIgnoreCase("sim")) {
@@ -18,7 +18,7 @@ public class Like {
             }
         }
         System.out.println("\nNão há mais nenhum usuário disponível para dar like.");
-        tinder.tinDev(user1);
+        userAct.tinDev(user1);
     }
 
     public boolean like(User user1, User user2) {

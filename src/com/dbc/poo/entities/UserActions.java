@@ -14,7 +14,6 @@ import java.util.Scanner;
 public class UserActions implements Actions {
     public static List<User> userList = new ArrayList<>();
     Scanner scan = new Scanner(System.in);
-    TinDev tinder = new TinDev();
 
     @Override
     public void registerUser() {
@@ -177,7 +176,7 @@ public class UserActions implements Actions {
         scan.nextLine();
 
         switch (userMenu) {
-            case 1 -> tinder.tinDev(user);
+            case 1 -> tinDev(user);
             case 2 -> updateUser(user);
             case 3 -> {
                 user.printMyInfo();
@@ -447,6 +446,38 @@ public class UserActions implements Actions {
                 appInit ();
             }
         }
+    }
+
+    public void tinDev(User user) {
+        Scanner scan = new Scanner(System.in);
+        Like like = new Like();
+        UserActions userActions = new UserActions();
+
+        System.out.println("""
+                    \n[TINDEV]
+                    1 - Escolher candidatos
+                    2 - Mostrar sua lista de matches
+                    3 - Mostrar sua lista de likes
+                    9 - Voltar ao menu anterior""");
+        int tinMenu = scan.nextInt();
+        scan.nextLine();
+        switch(tinMenu) {
+            case 1 -> {
+                List<User> availableUsers = userActions.listAvailableUsers(user);
+                like.listCandidates(availableUsers, user);
+            }
+            case 2 -> {
+                user.printMyMatches();
+                tinDev(user);
+            }
+            case 3 ->{
+                user.printMyLikes();
+                tinDev(user);
+            }
+            case 9 -> userActions.userMenu(user);
+        }
+
+
     }
 
     @Override
