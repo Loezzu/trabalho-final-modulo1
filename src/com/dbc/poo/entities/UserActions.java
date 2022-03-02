@@ -51,8 +51,7 @@ public class UserActions implements Actions {
         }
     }
 
-    @Override
-    public void listCandidates() {
+    public void listAllUsers() {
         for (int i = 0; i < userList.size(); i++) {
             System.out.println("id = " + i  + " | " + userList.get(i));
 
@@ -185,7 +184,7 @@ public class UserActions implements Actions {
                 userMenu(user);
             }
             case 4 -> {
-                listCandidates();
+                this.listAllUsers();
                 userMenu(user);
             }
             case 8 -> deleteUser(user);

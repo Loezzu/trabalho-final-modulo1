@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface Actions {
         void registerUser();
-        void listCandidates();
+        void listAllUsers();
         void updateUser(User user);
         void deleteUser(User user);
         List<User> listAvailableUsers(User user);
