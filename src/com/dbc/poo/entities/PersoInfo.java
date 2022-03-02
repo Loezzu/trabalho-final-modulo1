@@ -1,4 +1,4 @@
-package com.dbc.poo.TRANSLATECLEANEDIT;
+package com.dbc.poo.entities;
 
 public class PersoInfo {
     private String realName;

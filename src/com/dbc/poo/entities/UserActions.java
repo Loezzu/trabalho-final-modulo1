@@ -1,15 +1,19 @@
-package com.dbc.poo.TRANSLATECLEANEDIT;
+package com.dbc.poo.entities;
+
+import com.dbc.poo.enums.Gender;
+import com.dbc.poo.enums.Pref;
+import com.dbc.poo.enums.ProgLangs;
+import com.dbc.poo.interfaces.Actions;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-import static java.lang.String.valueOf;
 
-public class UserActions implements Actions{
-    static List<User> userList = new ArrayList<>();
+public class UserActions implements Actions {
+    public static List<User> userList = new ArrayList<>();
     Scanner scan = new Scanner(System.in);
-    Match match = new Match();
     TinDev tinder = new TinDev();
 
     public void registerUser() {
@@ -52,16 +56,17 @@ public class UserActions implements Actions{
         int editMenu = 0;
         System.out.println("""
                         \n[EDITAR PERFIL]
-                        1 - Username                       
-                        2 - Senha                        
-                        3 - Dados pessoais                      
+                        1 - Username
+                        2 - Senha
+                        3 - Dados pessoais
                         4 - Endereço
                         5 - Gênero
                         6 - Linguagens
                         7 - Interesses
+                        8 - WhatsApp (Somente Pro)
                         9 - Voltar ao menu anterior""");
         editMenu = scan.nextInt();
-        if (editMenu < 8 && editMenu > 0) {
+        if (editMenu < 9 && editMenu > 0) {
             switch (editMenu) {
                 case 1: {
                     editUsername(user);
@@ -98,6 +103,11 @@ public class UserActions implements Actions{
                     userMenu(user);
                     break;
                 }
+                case 8: {
+                    editWhatsapp(user);
+                    userMenu(user);
+                    break;
+                }
             }
         }
         else {
@@ -129,21 +139,21 @@ public class UserActions implements Actions{
                 \n[LOGIN]
                 Username:""");
         String usernameLogin = scan.nextLine();
-        for (int i=0; i<userList.size(); i++) {
-            if (usernameLogin.equalsIgnoreCase(userList.get(i).getUsername())) {
+        for (User user : userList) {
+            if (usernameLogin.equalsIgnoreCase(user.getUsername())) {
                 System.out.println("Senha:");
                 String passwordLogin = scan.nextLine();
-                if (passwordLogin.equals(userList.get(i).getPassword())) {
-                    System.out.println("\nBem-vindo, "+userList.get(i).getPersoInfo().getRealName()+"!\n");
-                    User loggedUser = userList.get(i);
-                    userMenu(loggedUser);
-                }
-                else {
+                if (passwordLogin.equals(user.getPassword())) {
+                    System.out.println("\nBem-vindo, " + user.getPersoInfo().getRealName() + "!\n");
+                    userMenu(user);
+                } else {
                     System.out.println("Senha inválida.");
                     login();
                 }
             }
         }
+        System.out.println("Usuário não encontrado.");
+        appInit();
     }
 
     public void userMenu(User user) {
@@ -166,6 +176,7 @@ public class UserActions implements Actions{
             }
             case 8 -> deleteUser(user);
             case 9 -> appInit();
+            default -> userMenu(user);
             }
     }
 
@@ -391,6 +402,17 @@ public class UserActions implements Actions{
         System.out.println("Interesses alterados com sucesso!");
     }
 
+    public void editWhatsapp (User user) {
+        if (user instanceof ProUser) {
+            System.out.println("Digite seu novo numero de Whatsapp: ");
+            String newWhatsapp = scan.next();
+            ((ProUser) user).setWhatsApp(newWhatsapp);
+            System.out.println("Número de whatsapp alterado com sucesso!");
+        } else {
+            System.out.println("Você não é um usuário Pro.");
+        }
+    }
+
     public void appInit() {
         System.out.println("""
             \nBem vindo(a) ao TinDev!
@@ -430,7 +452,7 @@ public class UserActions implements Actions{
     }
 
 
-    public void exibirUsuarios(List<User> users)  {
+    public void showUsers(List<User> users)  {
         for (int i=0; i<users.size(); i++) {
             System.out.println("ID: " +i+ " | " +users.get(i));
         }

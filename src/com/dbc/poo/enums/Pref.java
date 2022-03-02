@@ -1,4 +1,7 @@
-package com.dbc.poo.TRANSLATECLEANEDIT;
+package com.dbc.poo.enums;
+
+import com.dbc.poo.enums.Gender;
+
 import java.util.*;
 
 

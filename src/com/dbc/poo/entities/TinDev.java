@@ -1,4 +1,4 @@
-package com.dbc.poo.TRANSLATECLEANEDIT;
+package com.dbc.poo.entities;
 
 import java.util.List;
 import java.util.Scanner;
@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class TinDev {
     public void tinDev(User user) {
         Scanner scan = new Scanner(System.in);
-        Match match = new Match();
         Like like = new Like();
         UserActions userActions = new UserActions();
 

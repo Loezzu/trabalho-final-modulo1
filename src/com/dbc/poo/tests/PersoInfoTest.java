@@ -1,5 +1,6 @@
-package com.dbc.poo.TRANSLATECLEANEDIT;
+package com.dbc.poo.tests;
 
+import com.dbc.poo.entities.PersoInfo;
 import org.junit.Test;
 
 public class PersoInfoTest {

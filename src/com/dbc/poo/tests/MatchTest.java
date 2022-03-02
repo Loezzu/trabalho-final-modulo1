@@ -1,5 +1,9 @@
-package com.dbc.poo.TRANSLATECLEANEDIT;
+package com.dbc.poo.tests;
 
+import com.dbc.poo.entities.*;
+import com.dbc.poo.enums.Gender;
+import com.dbc.poo.enums.Pref;
+import com.dbc.poo.enums.ProgLangs;
 import org.junit.Test;
 
 public class MatchTest {

@@ -1,4 +1,4 @@
-package com.dbc.poo.TRANSLATECLEANEDIT;
+package com.dbc.poo.entities;
 
 import java.util.List;
 import java.util.Scanner;
@@ -29,7 +29,7 @@ public class Like {
         }
         if(user2.getMyLikes().contains(user1) && user1.getMyLikes().contains(user2)) {
             System.out.println("Podemos ter um casal, pois "+user1.getPersoInfo().getRealName()+" e "+user2.getPersoInfo().getRealName()+" trocaram likes!" +
-                    "Estamos analisando um possível match...");
+                    "\nEstamos analisando um possível match...");
             try {
                 Thread.sleep(3000);
                 Match match = new Match();

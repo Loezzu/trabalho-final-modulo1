@@ -1,4 +1,6 @@
-package com.dbc.poo.TRANSLATECLEANEDIT;
+package com.dbc.poo.entities;
+
+import com.dbc.poo.entities.User;
 
 public class Match {
     public void addMatch(User user1, User user2) {

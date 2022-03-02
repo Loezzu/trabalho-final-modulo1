@@ -1,6 +1,11 @@
-package com.dbc.poo.TRANSLATECLEANEDIT;
+package com.dbc.poo.entities;
 
-public class FreeUser extends User {
+import com.dbc.poo.enums.Gender;
+import com.dbc.poo.enums.Pref;
+import com.dbc.poo.enums.ProgLangs;
+import com.dbc.poo.interfaces.Print;
+
+public class FreeUser extends User implements Print {
     public FreeUser() {
     }
 

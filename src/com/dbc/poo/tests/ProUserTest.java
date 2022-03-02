@@ -1,5 +1,12 @@
-package com.dbc.poo.TRANSLATECLEANEDIT;
+package com.dbc.poo.tests;
 
+import com.dbc.poo.entities.Address;
+import com.dbc.poo.entities.PersoInfo;
+import com.dbc.poo.entities.ProUser;
+import com.dbc.poo.entities.User;
+import com.dbc.poo.enums.Gender;
+import com.dbc.poo.enums.Pref;
+import com.dbc.poo.enums.ProgLangs;
 import org.junit.Test;
 
 public class ProUserTest {

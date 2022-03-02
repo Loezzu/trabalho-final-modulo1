@@ -1,4 +1,4 @@
-package com.dbc.poo.TRANSLATECLEANEDIT;
+package com.dbc.poo.enums;
 
 public enum ProgLangs {
     JAVASCRIPT,

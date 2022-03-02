@@ -1,4 +1,6 @@
-package com.dbc.poo.TRANSLATECLEANEDIT;
+package com.dbc.poo.interfaces;
+
+import com.dbc.poo.entities.User;
 
 public interface Actions {
         void registerUser();

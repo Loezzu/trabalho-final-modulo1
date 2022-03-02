@@ -1,4 +1,8 @@
-package com.dbc.poo.TRANSLATECLEANEDIT;
+package com.dbc.poo.entities;
+
+import com.dbc.poo.enums.Gender;
+import com.dbc.poo.enums.Pref;
+import com.dbc.poo.enums.ProgLangs;
 
 import java.util.ArrayList;
 import java.util.List;
