@@ -16,6 +16,7 @@ public class UserActions implements Actions {
     Scanner scan = new Scanner(System.in);
     TinDev tinder = new TinDev();
 
+    @Override
     public void registerUser() {
         System.out.println("""
                 \nVocê deseja assinar o plano pro?
@@ -35,7 +36,7 @@ public class UserActions implements Actions {
         switch (pro) {
             case 1 -> {
                 System.out.println("Digite seu WhatsApp:");
-                String whatsApp = scan.nextLine();
+                String whatsApp = scan.next();
                 User user = new ProUser(username, password, persoInfo, address, progLangs, gender, pref, whatsApp);
                 userList.add(user);
                 System.out.println("Cadastro efetuado com sucesso!");
@@ -49,9 +50,15 @@ public class UserActions implements Actions {
             }
         }
     }
-    public void listCandidates() {
 
+    @Override
+    public void listCandidates() {
+        for (int i = 0; i < userList.size(); i++) {
+            System.out.println("id = " + i  + " | " + userList.get(i));
+
+        }
     }
+    @Override
     public void updateUser(User user) {
         int editMenu = 0;
         System.out.println("""
@@ -114,6 +121,8 @@ public class UserActions implements Actions {
             userMenu(user);
         }
     }
+
+    @Override
     public void deleteUser(User user) {
         int delOption = 0;
         System.out.println("""
@@ -162,6 +171,7 @@ public class UserActions implements Actions {
                     1 - Procurar parceiros
                     2 - Editar seu perfil
                     3 - Mostrar seu perfil
+                    4 - Mostrar todos usuarios
                     8 - Deletar perfil
                     9 - Fazer logout""");
         int userMenu = scan.nextInt();
@@ -172,6 +182,10 @@ public class UserActions implements Actions {
             case 2 -> updateUser(user);
             case 3 -> {
                 user.printMyInfo();
+                userMenu(user);
+            }
+            case 4 -> {
+                listCandidates();
                 userMenu(user);
             }
             case 8 -> deleteUser(user);
@@ -401,7 +415,6 @@ public class UserActions implements Actions {
         user.setPref(newPref);
         System.out.println("Interesses alterados com sucesso!");
     }
-
     public void editWhatsapp (User user) {
         if (user instanceof ProUser) {
             System.out.println("Digite seu novo numero de Whatsapp: ");
@@ -437,6 +450,7 @@ public class UserActions implements Actions {
         }
     }
 
+    @Override
     public List<User> listAvailableUsers(User user) {
         List<User> availableUsers = new ArrayList<>();
         for (int i = 0; i < userList.size(); i++) {
@@ -451,7 +465,7 @@ public class UserActions implements Actions {
         return availableUsers;
     }
 
-
+    @Override
     public void showUsers(List<User> users)  {
         for (int i=0; i<users.size(); i++) {
             System.out.println("ID: " +i+ " | " +users.get(i));
