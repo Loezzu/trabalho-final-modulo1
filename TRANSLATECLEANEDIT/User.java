@@ -89,10 +89,15 @@ public abstract class User{
         System.out.println(this);
     }
     public void printMyMatches() {
-        System.out.println(myMatches);
+        for (User myMatch : myMatches) {
+            System.out.println("Nome: " + myMatch.getPersoInfo().getRealName() + " | Idade: " + myMatch.getPersoInfo().getAge() + " | Linguagem de Programação: " + myMatch.progLangs);
+        }
     }
     public void printMyLikes() {
-        System.out.println(myLikes);
+        for (User myLike : myLikes) {
+            System.out.println("Nome: " + myLike.getPersoInfo().getRealName() + " | Idade: " + myLike.getPersoInfo().getAge() + " | Linguagem de Programação: " + myLike.progLangs);
+        }
+
     }
 
     @Override

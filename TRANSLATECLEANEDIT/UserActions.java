@@ -143,10 +143,6 @@ public class UserActions implements Actions{
                     login();
                 }
             }
-            else {
-                System.out.println("Usuário não encontrado.");
-                login();
-            }
         }
     }
 

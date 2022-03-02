@@ -23,8 +23,14 @@ public class TinDev {
                 List<User> availableUsers = userActions.listAvailableUsers(user);
                 like.listCandidates(availableUsers, user);
             }
-            case 2 -> user.printMyMatches();
-            case 3 -> user.printMyLikes();
+            case 2 -> {
+                user.printMyMatches();
+                tinDev(user);
+            }
+            case 3 ->{
+                user.printMyLikes();
+                tinDev(user);
+            }
             case 9 -> userActions.userMenu(user);
         }
 

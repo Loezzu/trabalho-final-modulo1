@@ -34,7 +34,7 @@ public class Main {
         User marina = new ProUser("marina", "6789",
                 new PersoInfo("Marina", 22, "marina@mail.com"),
                 new Address("Rua Mari",365,"Viamão"),
-                ProgLangs.PYTHON, Gender.FEMALE, Pref.MEN, "9995");
+                ProgLangs.JAVASCRIPT, Gender.FEMALE, Pref.MEN, "9995");
 
         User adriele = new FreeUser("adri", "7890",
                 new PersoInfo("Adriele", 20, "adri@mail.com"),
